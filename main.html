@@ -9,22 +9,24 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			if(arr.length<2){
-				return -Infinity
-			}
-			let highest=-Infinity;
-			let secondHighest=-Infinity;
-			for(let num of arr){
-				if (num>highest){
-					secondHighest=highest;
-					highest=sum;
-				}
-			}
-			return secondHighest === -Infinity ? -Infinity : secondHighest;
-			
-			
-		}
+    if (arr.length < 2) return -Infinity;
+
+    let highest = -Infinity;
+    let secondHighest = -Infinity;
+
+    for (let num of arr) {
+        num = Number(num); // Ensure num is treated as a number
+
+        if (num > highest) {
+            secondHighest = highest;
+            highest = num;
+        } else if (num > secondHighest && num < highest) {
+            secondHighest = num;
+        }
+    }
+
+    return secondHighest === -Infinity ? -Infinity : secondHighest;
+}
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
